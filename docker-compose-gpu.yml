@@ -1,0 +1,61 @@
+version: '2.3'
+services:
+    nginx:
+        image: choonkiatlee/colourize:nginx
+        container_name: nginx
+        depends_on:
+            - flask
+        networks:
+            - my-network
+        ports:
+            - 80:80
+            - 443:443
+    flask:
+        image: choonkiatlee/colourize:release
+        container_name: flask
+        runtime: nvidia
+        depends_on:
+            - redis
+            # - celery_worker
+        environment:
+            - AZURE_STORAGE_CONNECTION_STRING
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+            - ENABLE_GPU=True
+            - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+            - NVIDIA_VISIBLE_DEVICES=all
+        entrypoint: ["gunicorn", "-b", "0.0.0.0:5000", "-w", "4", "app:app", "--timeout" , "300" ]
+        networks:
+            my-network:
+                aliases:
+                    - flask-app
+        # ports:
+            # - 5000:5000
+
+    celery_worker:
+        image: choonkiatlee/colourize:release
+        # container_name: celery_worker
+        runtime: nvidia
+        depends_on:
+            - redis
+        environment:
+            - AZURE_STORAGE_CONNECTION_STRING
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+            - ENABLE_GPU=True
+            - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+            - NVIDIA_VISIBLE_DEVICES=all
+        entrypoint: ["celery", "worker", "-A", "tasks", "--loglevel=info"]
+        networks:
+            - my-network
+
+    redis:
+        image: redis:latest
+        container_name: deoldify_redis
+        networks:
+            my-network:
+                aliases:
+                    - redis
+
+networks:
+    my-network:

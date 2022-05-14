@@ -1,0 +1,177 @@
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-pd3hqr8_ because                                                      the default path (/home/appuser/.config/matplotlib) is not a writable directory; it is h                                                     ighly recommended to set the MPLCONFIGDIR environment variable to a writable directory, i                                                     n particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-ckmskq8m because                                                      the default path (/home/appuser/.config/matplotlib) is not a writable directory; it is h                                                     ighly recommended to set the MPLCONFIGDIR environment variable to a writable directory, i                                                     n particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-4hrp012q because                                                      the default path (/home/appuser/.config/matplotlib) is not a writable directory; it is h                                                     ighly recommended to set the MPLCONFIGDIR environment variable to a writable directory, i                                                     n particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-als77umr because                                                      the default path (/home/appuser/.config/matplotlib) is not a writable directory; it is h                                                     ighly recommended to set the MPLCONFIGDIR environment variable to a writable directory, i                                                     n particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2022-05-12 07:45:08 +0000] [12] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 589, in spawn_wo                                                     rker
+    worker.init_process()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 134, in ini                                                     t_process
+    self.load_wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 146, in loa                                                     d_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_                                                     wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/opt/venv/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/DeOldifyAPI/app.py", line 25, in <module>
+    from deoldify.visualize import *
+  File "/DeOldifyAPI/deoldify/visualize.py", line 6, in <module>
+    from .filters import IFilter, MasterFilter, ColorizerFilter
+  File "/DeOldifyAPI/deoldify/filters.py", line 11, in <module>
+    import cv2
+  File "/opt/venv/lib/python3.6/site-packages/cv2/__init__.py", line 8, in <module>
+    from .cv2 import *
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+[2022-05-12 07:45:08 +0000] [10] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 589, in spawn_wo                                                     rker
+    worker.init_process()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 134, in ini                                                     t_process
+    self.load_wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 146, in loa                                                     d_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_                                                     wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/opt/venv/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/DeOldifyAPI/app.py", line 25, in <module>
+    from deoldify.visualize import *
+  File "/DeOldifyAPI/deoldify/visualize.py", line 6, in <module>
+    from .filters import IFilter, MasterFilter, ColorizerFilter
+  File "/DeOldifyAPI/deoldify/filters.py", line 11, in <module>
+    import cv2
+  File "/opt/venv/lib/python3.6/site-packages/cv2/__init__.py", line 8, in <module>
+    from .cv2 import *
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+[2022-05-12 07:45:08 +0000] [9] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 589, in spawn_wo                                                     rker
+    worker.init_process()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 134, in ini                                                     t_process
+    self.load_wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 146, in loa                                                     d_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_                                                     wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/opt/venv/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/DeOldifyAPI/app.py", line 25, in <module>
+    from deoldify.visualize import *
+  File "/DeOldifyAPI/deoldify/visualize.py", line 6, in <module>
+    from .filters import IFilter, MasterFilter, ColorizerFilter
+  File "/DeOldifyAPI/deoldify/filters.py", line 11, in <module>
+    import cv2
+  File "/opt/venv/lib/python3.6/site-packages/cv2/__init__.py", line 8, in <module>
+    from .cv2 import *
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+[2022-05-12 07:45:08 +0000] [12] [INFO] Worker exiting (pid: 12)
+Running with only CPU enabled...
+[2022-05-12 07:45:08 +0000] [10] [INFO] Worker exiting (pid: 10)
+Running with only CPU enabled...
+[2022-05-12 07:45:08 +0000] [9] [INFO] Worker exiting (pid: 9)
+Running with only CPU enabled...
+[2022-05-12 07:45:08 +0000] [11] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 589, in spawn_wo                                                     rker
+    worker.init_process()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 134, in ini                                                     t_process
+    self.load_wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 146, in loa                                                     d_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_                                                     wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/opt/venv/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/DeOldifyAPI/app.py", line 25, in <module>
+    from deoldify.visualize import *
+  File "/DeOldifyAPI/deoldify/visualize.py", line 6, in <module>
+    from .filters import IFilter, MasterFilter, ColorizerFilter
+  File "/DeOldifyAPI/deoldify/filters.py", line 11, in <module>
+    import cv2
+  File "/opt/venv/lib/python3.6/site-packages/cv2/__init__.py", line 8, in <module>
+    from .cv2 import *
+ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+[2022-05-12 07:45:08 +0000] [11] [INFO] Worker exiting (pid: 11)
+Running with only CPU enabled...
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 209, in run
+    self.sleep()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 357, in sleep
+    ready = select.select([self.PIPE[0]], [], [], 1.0)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 242, in handle_c                                                     hld
+    self.reap_workers()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_wor                                                     kers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/venv/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 242, in handle_c                                                     hld
+    self.reap_workers()
+  File "/opt/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_wor                                                     kers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>

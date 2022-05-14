@@ -1,0 +1,20 @@
+version: '2.3'
+services:
+    celery_worker_archive:
+        image: choonkiatlee/colourize:release
+        # container_name: celery_worker
+        runtime: nvidia
+        environment:
+            - AZURE_STORAGE_CONNECTION_STRING
+            - CELERY_BROKER_URL=redis://redis:6379/0
+            - CELERY_RESULT_BACKEND=redis://redis:6379/0
+            - ENABLE_GPU=True
+            - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+            - NVIDIA_VISIBLE_DEVICES=all
+        entrypoint: ["celery", "worker", "-A", "tasks_archive", "--loglevel=info","--queues=archive"]
+        networks:
+            api_my-network:
+
+networks:
+  api_my-network:
+    external: true

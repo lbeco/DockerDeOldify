@@ -1,0 +1,60 @@
+FROM nvidia/cuda:10.2-base as base
+
+RUN apt-get update && apt-get install -y python3-dev
+
+FROM base as builder
+RUN mkdir /install
+WORKDIR /install
+
+RUN apt-get update && apt-get install -y gcc build-essential wget virtualenv
+COPY requirements.txt /requirements.txt
+
+FROM builder as pip_install
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN virtualenv -p python3 $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Install dependencies:
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+###### Prepare the image for release
+FROM base as prepare_release
+
+RUN apt-get update && apt-get install -y wget libglib2.0-0 libsm6 libxext6 libxrender1
+
+RUN groupadd -g 999 appuser && \
+    useradd -r -u 999 -g appuser appuser
+
+COPY --from=pip_install /opt/venv /opt/venv
+RUN mkdir /DeOldifyAPI
+
+RUN chown appuser:appuser /opt/venv
+RUN chown appuser:appuser /DeOldifyAPI
+
+USER appuser
+
+WORKDIR /DeOldifyAPI
+
+# Download Weights
+RUN mkdir models checkpoints
+RUN wget https://www.dropbox.com/s/zkehq1uwahhbc2o/ColorizeArtistic_gen.pth?dl=0 -O models/ColorizeArtistic_gen.pth
+RUN wget https://download.pytorch.org/models/resnet34-333f7ec4.pth -O checkpoints/resnet34-333f7ec4.pth
+
+
+# Prepare release
+FROM prepare_release as release
+
+WORKDIR /DeOldifyAPI
+
+COPY --chown=appuser:appuser . .
+
+USER appuser
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+EXPOSE 5000
+EXPOSE 5555
+ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "-w", "4", "app:app", "--timeout" , "300" ]
+
